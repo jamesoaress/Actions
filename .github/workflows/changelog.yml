@@ -19,12 +19,9 @@ jobs:
 
       - name: Gerar o histórico de commits
         run: |
-          # Cria o cabeçalho da tabela
           echo "| Data | Atualização | Hash | Autor |" > new_changelog.txt
           echo "|:---|:---|:---:|:---|" >> new_changelog.txt
-          # Preenche a tabela com os dados formatados
-          git log --date=short --pretty=format:"| **%ad** | %s | \`%h\` |  *%an* |" >> new_changelog.txt
-
+          git log --date=short --pretty=format:"| <nobr> **%ad**</nobr> | %s | \`%h\` |  *%an* |" >> new_changelog.txt
       - name: Inserir o Changelog no README.md
         run: |
           # Utiliza o awk para substituir o texto entre as tags START e END no README pelo novo histórico
