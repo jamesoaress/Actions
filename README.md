@@ -3,6 +3,8 @@
 ## Changelog
 
 <!-- CHANGELOG:START -->
+- feat: adiciona arquivo de teste para gerar a primeira release (`0f6744e`)
+- docs: atualizar changelog no README (`999b1c3`)
 - ci: adiciona workflow para publicar releases automaticamente (`6fd28ed`)
 - docs: atualizar changelog no README (`3ff4552`)
 - outro teste dnvv (`386d533`)
