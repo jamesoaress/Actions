@@ -1,0 +1,78 @@
+name: Atualizar changelog no README
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-changelog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar histórico completo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Atualizar changelog no README
+        run: |
+          python3 - <<'PY'
+          import subprocess
+          from pathlib import Path
+
+          readme = Path("README.md")
+          text = readme.read_text(encoding="utf-8")
+          start_marker = "<!-- CHANGELOG:START -->"
+          end_marker = "<!-- CHANGELOG:END -->"
+
+          if text.count(start_marker) != 1 or text.count(end_marker) != 1:
+              raise SystemExit(
+                  "README.md precisa conter exatamente um par de marcadores do changelog."
+              )
+
+          latest_tag = subprocess.run(
+              ["git", "describe", "--tags", "--abbrev=0"],
+              capture_output=True,
+              text=True,
+          )
+
+          revision_range = (
+              f"{latest_tag.stdout.strip()}..HEAD"
+              if latest_tag.returncode == 0
+              else "HEAD"
+          )
+          result = subprocess.run(
+              [
+                  "git",
+                  "log",
+                  "-n",
+                  "50",
+                  "--no-merges",
+                  "--pretty=format:- %s (`%h`)",
+                  revision_range,
+              ],
+              check=True,
+              capture_output=True,
+              text=True,
+          )
+          entries = result.stdout.strip() or "- Nenhuma alteração encontrada."
+
+          start = text.index(start_marker) + len(start_marker)
+          end = text.index(end_marker)
+          updated = text[:start] + "\n" + entries + "\n" + text[end:]
+          readme.write_text(updated, encoding="utf-8")
+          PY
+
+      - name: Salvar alteração no README
+        run: |
+          if ! git diff --quiet -- README.md; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add README.md
+            git commit -m "docs: atualizar changelog no README"
+            git push
+          fi
