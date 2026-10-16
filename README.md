@@ -3,6 +3,8 @@
 ## Changelog
 
 <!-- CHANGELOG:START -->
+- ci: adiciona workflow para publicar releases automaticamente (`6fd28ed`)
+- docs: atualizar changelog no README (`3ff4552`)
 - outro teste dnvv (`386d533`)
 - docs: atualizar changelog no README (`a6935fa`)
 - Merge branch 'main' of https://github.com/jamesoaress/Actions (`65ef2a9`)
