@@ -3,6 +3,9 @@
 ## Changelog
 
 <!-- CHANGELOG:START -->
+- Merge branch 'main' of https://github.com/jamesoaress/Actions (`65ef2a9`)
+- teste: verifica se a automacao do changelog funciona (`fd85b7a`)
+- docs: atualizar changelog no README (`3dfa41f`)
 - Merge branch 'main' of https://github.com/jamesoaress/Actions (`4a70999`)
 - ci: adiciona workflow de atualização automática do changelog (`0c17a1a`)
 - docs: atualizar changelog no README (`cec12c2`)
