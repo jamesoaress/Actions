@@ -3,6 +3,8 @@
 ## Changelog
 
 <!-- CHANGELOG:START -->
+- outro teste dnvv (`386d533`)
+- docs: atualizar changelog no README (`a6935fa`)
 - Merge branch 'main' of https://github.com/jamesoaress/Actions (`65ef2a9`)
 - teste: verifica se a automacao do changelog funciona (`fd85b7a`)
 - docs: atualizar changelog no README (`3dfa41f`)
