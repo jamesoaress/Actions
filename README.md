@@ -3,6 +3,7 @@
 ## Changelog
 
 <!-- CHANGELOG:START -->
+- docs: atualizar changelog no README (`6610ef9`)
 - docs: atualizar changelog no README (`af49e29`)
 - testando (`bcdb26b`)
 - docs: atualizar changelog no README (`d4be487`)
