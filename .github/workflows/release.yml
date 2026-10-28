@@ -1,24 +1,28 @@
-name: Criar Release Automática
+name: Gerar Release Automática
 
 on:
   push:
-    tags:
-      - 'v*' # Executa a ação sempre que enviar uma tag que comece por "v" (ex: v1.0.0)
+    branches:
+      - main # O workflow será ativado a cada novo commit/push na branch main
 
 jobs:
-  publicar-versao:
+  criar-release:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Permissão obrigatória para que o Action possa criar e publicar a Release
+      contents: write # Permissão obrigatória para o bot conseguir criar a release no GitHub
 
     steps:
-      - name: Checkout do repositório
+      - name: Baixar o código do repositório
         uses: actions/checkout@v4
 
-      # Se o seu projeto precisar de ser compilado ou empacotado antes do lançamento
-      # (ex: gerar ficheiros .zip, construir uma imagem, etc.), adicionaria esses passos aqui.
+      - name: Empacotar o projeto em ZIP
+        run: zip -r pacote-projeto.zip . -x "*.git*" ".github/*"
+        # Compacta todos os arquivos, excluindo pastas ocultas do git e os próprios workflows
 
-      - name: Gerar e Publicar a Release
+      - name: Publicar Release no GitHub
         uses: softprops/action-gh-release@v2
         with:
-          generate_release_notes: true # Gera automaticamente um resumo das alterações com base nos seus commits recentes
+          tag_name: v1.0.${{ github.run_number }} # Usa o número da execução para gerar uma tag única (ex: v1.0.1, v1.0.2)
+          name: Release Automática v1.0.${{ github.run_number }}
+          body: "Release gerada automaticamente a partir do novo commit."
+          files: pacote-projeto.zip # Anexa o ZIP que foi exigido no trabalho

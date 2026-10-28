@@ -2,7 +2,6 @@
 
 **Integrantes da Dupla:**
 * James Soares Silva (RA: 250380)
-* [Nome do seu colega de dupla, se houver] (RA: [RA do colega])
 
 ## Descrição do Projeto
 Este repositório foi criado para demonstrar o uso e o funcionamento de fluxos de CI/CD utilizando o **GitHub Actions**. O projeto implementa duas automações independentes: a primeira é responsável por manter um registro atualizado das alterações do código (Changelog), e a segunda automatiza o empacotamento e a publicação de versões do projeto (Release).
