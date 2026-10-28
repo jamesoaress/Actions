@@ -1,4 +1,19 @@
-# Actions
+# Trabalho 1 - Changelog e Release com GitHub Actions
+
+**Integrantes da Dupla:**
+* James Soares Silva (RA: 250380)
+* [Nome do seu colega de dupla, se houver] (RA: [RA do colega])
+
+## Descrição do Projeto
+Este repositório foi criado para demonstrar o uso e o funcionamento de fluxos de CI/CD utilizando o **GitHub Actions**. O projeto implementa duas automações independentes: a primeira é responsável por manter um registro atualizado das alterações do código (Changelog), e a segunda automatiza o empacotamento e a publicação de versões do projeto (Release).
+
+### Funcionamento da Action de Changelog
+A Action de Changelog está configurada para rastrear as atualizações enviadas ao repositório. Sempre que há um novo envio de código (push), a Action lê automaticamente as mensagens dos commits e escreve essas informações na tabela da seção "Changelog" deste próprio arquivo `README.md`. A tabela registra de forma automática a data, a descrição da alteração, o hash do commit e o autor.
+
+### Funcionamento da Action de Release
+A Action de Release automatiza a disponibilização de novas versões do projeto. Quando ativada, a rotina empacota os arquivos do repositório em um pacote comprimido (como um arquivo `.zip`) e publica essa nova versão oficialmente na seção "Releases" do GitHub, deixando o código pronto para download e uso.
+
+---
 
 ## Changelog
 
