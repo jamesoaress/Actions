@@ -19,6 +19,8 @@ A Action de Release automatiza a disponibilização de novas versões do projeto
 <!-- CHANGELOG:START -->
 | Data | Atualização | Hash | Autor |
 |:---|:---|:---:|:---|
+|  **2026&#8209;10&#8209;28** | docs: atualiza README com requisitos do Trabalho 1 | `f7e9621` |  *jamesoaress* |
+|  **2026&#8209;10&#8209;16** | docs: atualizar changelog no README | `ba49e18` |  *jamesoaress* |
 |  **2026&#8209;10&#8209;15** | Merge branch 'main' of https://github.com/jamesoaress/Actions | `79ee9c2` |  *jamesoaress* |
 |  **2026&#8209;10&#8209;15** | novamente mudando tabela | `057745f` |  *jamesoaress* |
 |  **2026&#8209;10&#8209;16** | docs: atualizar changelog no README | `1d9130f` |  *jamesoaress* |
